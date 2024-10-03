@@ -62,12 +62,12 @@ def train(args, log_dir, writer, logger):
         print("In debug mode.")
         logger.info('In debug mode.')
     else:
-        num_workers = 2
+        num_workers = 1
 
     trainloader = data.DataLoader(train_set, batch_size=args.batch_size,
-                                  num_workers=num_workers, shuffle=True, pin_memory=True)
+                                  num_workers=num_workers, shuffle=True, pin_memory=False)
     valloader = data.DataLoader(val_set, batch_size=1,
-                                num_workers=num_workers, pin_memory=True)
+                                num_workers=num_workers, pin_memory=False)
 
     # Setup Model
     logging.info('Loading model...')
