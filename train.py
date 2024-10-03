@@ -128,7 +128,7 @@ def train(args, log_dir, writer, logger):
     if args.weights is not None:
         if os.path.exists(args.weights):
             logger.info("Loading model and optimizer from checkpoint '{}'".format(args.weights))
-            checkpoint = torch.load(args.weights)
+            checkpoint = torch.load(args.weights, weights_only=False)
             model.load_state_dict(checkpoint['model_state'])
             criterion.load_state_dict(checkpoint['criterion_state'])
             if not args.new_hyperparams:
