@@ -170,7 +170,7 @@ class DictToTensor(object):
     def furukawa(self, sample):
         image, label = sample['image'], sample['label']
         _, height, width = label.shape
-        heatmap_points = sample['heatmap_points']
+        heatmap_points = sample['heatmaps']
 
         heatmap_tensor = np.zeros((21, height, width))
         for channel, coords in heatmap_points.items():
